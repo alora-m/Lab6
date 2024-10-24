@@ -6,6 +6,14 @@ def encode(password):
         encoded += str(num)
     return encoded
 
+def decoded(password):
+    decoded_password = ''
+    for i in password:
+        integer_num = int(i)
+        integer_num -= 3
+        decoded_password += str(integer_num)
+    return decoded_password
+
 if __name__ == "__main__":
     repeat_menu = True
     while repeat_menu:
@@ -21,8 +29,12 @@ if __name__ == "__main__":
             user_pass = str(input("Please enter your password: "))
             user_pass = encode(user_pass)
             print("Your password has been encoded and stored!\n")
+            print()
         elif menu_choice == 2:
-            pass # enter decode program here
+            decoded_password = decoded(user_pass)
+            print(f'The encoded password is {user_pass}, and the original password is {decoded_password}')
+            print('') # enter decode program here
         elif menu_choice == 3:
             repeat_menu = False
+
 
